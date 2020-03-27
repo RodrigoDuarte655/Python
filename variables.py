@@ -31,3 +31,42 @@ y = int(y)
 z = float(y)
 
 print(type(z), z)
+
+#1001
+
+A = int(input(''))
+B = int(input(''))
+
+X = (A + B)
+
+print('X = ' + str(X))
+print('X = {X}'.format(X = X))
+print(f'X = {X}')
+
+print(type(X))
+
+#1002
+
+n = 3.14159
+
+R = float(input(''))
+
+A = (n * (R*R))
+
+print("A={:.4f}".format(A))
+
+#1003
+A = int(input())
+B = int(input())
+
+SOMA = A + B
+
+print('SOMA = {}'.format(SOMA))
+
+#1004
+a = int(input())
+b = int(input())
+
+PROD = a * b
+
+print('PROD = {}'.format(PROD))
