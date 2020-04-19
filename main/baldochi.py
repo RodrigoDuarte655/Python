@@ -1,4 +1,4 @@
-""" Escreva uma função que receba um float representando o
+""" AEscreva uma função que receba um float representando o
 valor da temperatura em Celsius e retorne a temperatura
 equivalente em Farenheit. Em seguida, escreva um código
 que leia uma temperatura em Celsius e informe o valor
