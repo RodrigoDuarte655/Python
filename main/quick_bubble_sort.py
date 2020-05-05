@@ -1,7 +1,7 @@
 import timeit
 import time
-from random import seed
-from random import randint
+
+from random import randint, seed
 
 """ # Implementação do Bubble Sort """
 
