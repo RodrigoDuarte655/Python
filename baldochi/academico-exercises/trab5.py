@@ -61,7 +61,7 @@ def valorMensalMaisBarato(emps):
         maisBarato = emps[2]
 
     print(
-        f'O valor mensal mais barato é o da empregada {maisBarato.getNome()}, cujo telefone é {maisBarato.getTelefone()} e salário é {maisBarato.getSalario()} reais.\n')
+        f'O valor mensal mais barato é o da empregada {maisBarato.getNome()}, cujo telefone é {maisBarato.getTelefone()} e salário é {maisBarato.getSalario()} reais.\n ')
 
 
 # Instanciando os objetos que são as empregadas
