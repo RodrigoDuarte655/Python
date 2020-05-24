@@ -53,15 +53,15 @@ class Mensalista(EmpDomestica):
 
 
 # faça um teste automatizado para imprimir qual será mais barato para a república (Imprimir nome, telefone e salário)
-def valorMensalMaisBarato(emp1, emp2, emp3):
-    maisBarato = emp1
-    if emp2.getSalario() < maisBarato.getSalario():
-        maisBarato = emp2
-    if emp3.getSalario() < maisBarato.getSalario():
-        maisBarato = emp3
+def valorMensalMaisBarato(emps):
+    maisBarato = emps[0]
+    if emps[1].getSalario() < maisBarato.getSalario():
+        maisBarato = emps[1]
+    if emps[2].getSalario() < maisBarato.getSalario():
+        maisBarato = emps[2]
 
     print(
-        f'O valor mensal mais barato é o da empregada {maisBarato.getNome()}, cujo telefone é {maisBarato.getTelefone()} e salário é {maisBarato.getSalario()} reais.')
+        f'O valor mensal mais barato é o da empregada {maisBarato.getNome()}, cujo telefone é {maisBarato.getTelefone()} e salário é {maisBarato.getSalario()} reais.\n')
 
 
 # Instanciando os objetos que são as empregadas
@@ -74,23 +74,16 @@ diarista.setNome('Gabrielly')
 mensalista = Mensalista('', 5535999231285, 1000)
 mensalista.setNome('Letícia')
 
+# Lista com as empregadas
+empregadas = [horista, diarista, mensalista]
+
+print('--------------Valores mensais das empregadas--------------\n')
 # Imprima o valor mensal de salário de cada empregada
-print('--------------Valores mensais das empregadas:--------------\n')
-print(
-    f'O salário mensal da horista {horista.getNome()} é {horista.getSalario()} reais, e seu telefone é {horista.getTelefone()}.')
+for empregada in empregadas:
+    print(
+        f'O salário mensal da {empregada.getNome()} é {empregada.getSalario()} reais, e seu telefone é {empregada.getTelefone()}.\n')
 
-print()
 
-print(
-    f'O salário mensal da diarista {diarista.getNome()} é {diarista.getSalario()} reais, e seu telefone é {diarista.getTelefone()}.')
-
-print()
-
-print(
-    f'O salário mensal da mensalista {mensalista.getNome()} é {mensalista.getSalario()} reais, e seu telefone é {mensalista.getTelefone()}.')
-
-print()
-
-print('--------------Teste automatizado para detectar a empregada mais barata:--------------\n')
+print('--------------Teste automatizado para detectar a empregada mais barata--------------\n')
 # Chamada do teste automatizado
-valorMensalMaisBarato(horista, diarista, mensalista)
+valorMensalMaisBarato(empregadas)
