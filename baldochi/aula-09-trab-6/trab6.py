@@ -7,20 +7,19 @@ def mdc(m, n):
     return n
 
 
-def divideFrac(frac):
-    integer = 0
-    newNum = frac.getNum()
+def separadorFrac(frac):
+    novoNum = frac.getNum()
+    inteiro = 0
+    while novoNum > frac.getDen():
+        novoNum -= frac.getDen()
+        inteiro += 1
 
-    while newNum > frac.getDen():
-        newNum -= frac.getDen()
-        integer += 1
-
-    return integer, newNum
+    return inteiro, novoNum
 
 
-def sumInteger(parteInteira, parteNum):
-    integer = parteInteira + parteNum
-    return integer
+def somarInteiro(parteInteira, parteNum):
+    inteiro = parteInteira + parteNum
+    return inteiro
 
 
 class Fracao:
@@ -43,10 +42,10 @@ class Fracao:
         self.__den = self.__den // divComum
 
     def __add__(self, outraFrac):
-        newNum = self.__num * outraFrac.getDen() + self.__den * outraFrac.getNum()
+        novoNum = self.__num * outraFrac.getDen() + self.__den * outraFrac.getNum()
         novoDen = self.__den * outraFrac.getDen()
-        divComum = mdc(newNum, novoDen)
-        return Fracao(newNum//divComum, novoDen//divComum)
+        divComum = mdc(novoNum, novoDen)
+        return Fracao(novoNum//divComum, novoDen//divComum)
 
 
 class fracaoMista(Fracao):
@@ -57,23 +56,23 @@ class fracaoMista(Fracao):
     def getParteInteira(self):
         return self.__parteInteira
 
-    def merge(self):
-        newNum = (self.__parteInteira * self.getDen()) + self.getNum()
-        return Fracao(newNum, self.getDen())
+    def juntar(self):
+        novoNum = (self.__parteInteira * self.getDen()) + self.getNum()
+        return Fracao(novoNum, self.getDen())
 
     def __add__(self, outraFrac):
-        newNum = self.getNum() * outraFrac.getDen() + self.getDen() * outraFrac.getNum()
+        novoNum = self.getNum() * outraFrac.getDen() + self.getDen() * outraFrac.getNum()
         novoDen = self.getDen() * outraFrac.getDen()
-        divComum = mdc(newNum, novoDen)
-        return Fracao(newNum//divComum, novoDen//divComum)
+        divComum = mdc(novoNum, novoDen)
+        return Fracao(novoNum//divComum, novoDen//divComum)
 
     def __str__(self):
         if self.__parteInteira > 0 and self.getNum() < self.getDen():
             return str(self.__parteInteira) + ' ' + str(self.getNum()) + '/' + str(self.getDen())
 
         elif self.__parteInteira >= 0 and self.getNum() == self.getDen():
-            integer = sumInteger(self.__parteInteira, 1)
-            return str(integer)
+            inteiro = somarInteiro(self.__parteInteira, 1)
+            return str(inteiro)
         else:
             return str(self.getNum()) + '/' + str(self.getDen())
 
@@ -81,29 +80,20 @@ class fracaoMista(Fracao):
 frac1 = Fracao(7, 6)
 frac2 = Fracao(13, 7)
 frac3 = frac1 + frac2
-integer, numerador = divideFrac(frac3)
-
-print(fracaoMista(integer, numerador, frac3.getDen()))
-# 7/6 + 13/7 = 3 1/42
-
+inteiro, numerador = separadorFrac(frac3)
+print(fracaoMista(inteiro, numerador, frac3.getDen()))
 print()
 
 frac1 = Fracao(1, 3)
 frac2 = Fracao(2, 3)
 frac3 = frac1 + frac2
-integer, numerador = divideFrac(frac3)
-
-print(fracaoMista(integer, numerador, frac3.getDen()))
-# 1/3 + 2/3 = 1
-
+inteiro, numerador = separadorFrac(frac3)
+print(fracaoMista(inteiro, numerador, frac3.getDen()))
 print()
 
 frac1 = fracaoMista(3, 1, 2)
 frac2 = fracaoMista(4, 2, 3)
-frac3 = frac1.merge() + frac2.merge()
-integer, numerador = divideFrac(frac3)
+frac3 = frac1.juntar() + frac2.juntar()
+inteiro, numerador = separadorFrac(frac3)
+print(fracaoMista(inteiro, numerador, frac3.getDen()))
 
-print(fracaoMista(integer, numerador, frac3.getDen()))
-# 3 1/2 + 4 2/3 = 8 1/6
-
-print()
