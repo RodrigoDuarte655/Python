@@ -32,8 +32,8 @@ class ViewPanel():
         self.frame1.pack()
         self.frame2.pack()
 
-        self.labelInfo1 = tk.Label(self.frame1, text="Digite algo:")
-        self.labelInfo2 = tk.Label(self.frame2, text="Digite algo:")
+        self.labelInfo1 = tk.Label(self.frame1, text="Nome:")
+        self.labelInfo2 = tk.Label(self.frame2, text="Email:")
         self.labelInfo1.pack(side="left")
         self.labelInfo2.pack(side="left")
 
@@ -50,8 +50,43 @@ class ViewPanel():
         self.buttonClear.pack(side="left")
         self.buttonClear.bind("<Button>", controller.clearHandler)
 
-# class Controller():
+    def showWindow(self, title, message):
+        messagebox.showinfo(title, message)
 
 
-# if __name__ == '__main__':
-#    c = Controller()
+class Controller():
+    def __init__(self):
+        self.root = tk.Tk()
+        self.listaClientes = []
+
+        # Create the view passing reference of the main window and itself
+        self.view = View(self.root, self)
+
+        self.root.title('MVC example')
+        # Initiate the mainloop
+        self.root.mainloop()
+
+    def enterHandler(self, event):
+        clientName = self.view.viewPanel.inputText1.get()
+        clientEmail = self.view.viewPanel.inputText2.get()
+        client = ModelCliente(clientName, clientEmail)
+        self.listaClientes.append(client)
+        self.view.viewPanel.showWindow(
+            'Success', 'Client successfully registered ')
+        self.clearHandler(event)
+
+    def clearHandler(self, event):
+        self.view.viewPanel.inputText1.delete(
+            0, len(self.view.viewPanel.inputText1.get()))
+        self.view.viewPanel.inputText2.delete(
+            0, len(self.view.viewPanel.inputText2.get()))
+
+
+if __name__ == '__main__':
+    c = Controller()
+
+
+""" 
+https://drive.google.com/file/d/1r2VfrlWAawKB79ruMmbU0NPOtOgBDHZb/view
+
+53:12 """
