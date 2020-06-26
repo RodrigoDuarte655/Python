@@ -50,6 +50,10 @@ class ViewPanel():
         self.buttonClear.pack(side="left")
         self.buttonClear.bind("<Button>", controller.clearHandler)
 
+        self.buttonClients = tk.Button(self.janela, text="Show clients")
+        self.buttonClients.pack(side='left')
+        self.buttonClients.bind("<Button>", controller.clientsHandler)
+
     def showWindow(self, title, message):
         messagebox.showinfo(title, message)
 
@@ -80,6 +84,12 @@ class Controller():
             0, len(self.view.viewPanel.inputText1.get()))
         self.view.viewPanel.inputText2.delete(
             0, len(self.view.viewPanel.inputText2.get()))
+
+    def clientsHandler(self, event):
+        self.message = 'Yeahhhhh, Clients registered:\n'
+        for clients in self.listaClientes:
+            self.message += clients.getNome() + ' - ' + clients.getEmail() + '\n'
+        self.view.viewPanel.showWindow('Clients List', self.message)
 
 
 if __name__ == '__main__':
