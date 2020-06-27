@@ -94,9 +94,3 @@ class Controller():
 
 if __name__ == '__main__':
     c = Controller()
-
-
-""" 
-https://drive.google.com/file/d/1r2VfrlWAawKB79ruMmbU0NPOtOgBDHZb/view
-
-53:12 """
