@@ -63,7 +63,7 @@ class Controller():
         self.root = tk.Tk()
         self.listaClientes = []
 
-        # Create the view passing reference of the main window and itself
+        # Create the view passing reference of the main window and itselfx
         self.view = View(self.root, self)
 
         self.root.title('MVC example')
