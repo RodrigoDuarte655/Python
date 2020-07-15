@@ -1,1 +1,1 @@
-# Object-oriented programming (OOP) in Python
+# Object-oriented programming (OOP) and Model–view–controller (MVC) patterns in Python
