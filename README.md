@@ -9,7 +9,7 @@ Object-oriented programming is based on the following principles:
 
 Also, other concepts, such as:
 - **Abstract classes**
-- **composition**
+- **Composition**
 - **Aggregation**
-- **interfaces**
+- **Interfaces**
 - **MVC (model-view-controller)**
