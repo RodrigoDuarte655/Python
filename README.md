@@ -2,4 +2,4 @@
 
 Object-oriented programming is based on the following principles:
 
-**eae**
+- **eae**
