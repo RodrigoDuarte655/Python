@@ -2,4 +2,14 @@
 
 Object-oriented programming is based on the following principles:
 
-- **eae**
+- **Encapsulation**
+- **Abstraction**
+- **Inheritance**
+- **Polymorphism**
+
+Also, other concepts, such as:
+- **Abstract classes**
+- **composition**
+- **Aggregation**
+- **interfaces**
+- **MVC (model-view-controller)**
